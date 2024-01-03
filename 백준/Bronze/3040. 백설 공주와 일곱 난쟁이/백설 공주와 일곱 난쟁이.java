@@ -1,14 +1,16 @@
-import java.util.Scanner;
+import java.io.*;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args)throws IOException {
 
-        Scanner sc = new Scanner(System.in);
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
+
         int sum=0, n1=0,n2=0;
         int[] arr = new int[9];
 
         for (int i = 0; i < 9; i++) {
-            int n = Integer.parseInt(sc.nextLine());
+            int n = Integer.parseInt(br.readLine());
             arr[i] = n;
             sum += n;
         }
@@ -27,9 +29,10 @@ public class Main {
 
         for (int i : arr) {
             if (i != n1 && i != n2) {
-                System.out.println(i);
+                sb.append(i).append("\n");
             }
         }
 
+        System.out.println(sb.toString());
     }
 }
