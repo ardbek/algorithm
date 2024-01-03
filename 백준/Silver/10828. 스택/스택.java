@@ -2,52 +2,50 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
-    
+
     public static void main(String[] args) throws IOException {
 
         Stack<Integer> stack = new Stack<>();
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
         int n = Integer.parseInt(br.readLine());
-
         String cmd = "";
-        int x = 0;
-
         for (int i = 0; i < n; i++) {
             StringTokenizer st = new StringTokenizer(br.readLine());
             cmd = st.nextToken();
 
             switch (cmd) {
                 case "push":
-                    x = Integer.parseInt(st.nextToken());
-                    stack.push(x);
+                    stack.push(Integer.parseInt(st.nextToken()));
                     break;
                 case "pop":
                     if (stack.empty()) {
-                        System.out.println("-1");
+                        sb.append("-1").append("\n");
                     } else {
-                        System.out.println(stack.pop());
+                        sb.append(stack.pop()).append("\n");
                     }
                     break;
                 case "size":
-                    System.out.println(stack.size());
+                    sb.append(stack.size()).append("\n");
                     break;
                 case "empty":
                     if (stack.empty()) {
-                        System.out.println("1");
+                        sb.append("1").append("\n");
                     } else {
-                        System.out.println("0");
+                        sb.append("0").append("\n");
                     }
                     break;
                 case "top":
                     if (stack.empty()) {
-                        System.out.println("-1");
+                        sb.append("-1").append("\n");
                     } else {
-                        System.out.println(stack.peek());
+                        sb.append(stack.peek()).append("\n");
                     }
                     break;
             }
 
         }
+        System.out.println(sb.toString());
 
     }
 
