@@ -1,4 +1,3 @@
-
 import java.io.*;
 import java.util.*;
 
@@ -10,20 +9,26 @@ public class Main {
 
         int n = Integer.parseInt(st.nextToken());
         int k = Integer.parseInt(st.nextToken());
-        List<Integer> list = new ArrayList<>();
+        List<Integer> smallDivisors = new ArrayList<>();
+        List<Integer> largeDivisors = new ArrayList<>();
 
-        for (int i = 1; i < n+1; i++) {
-            if (n % (i) == 0) {
-                list.add(i);
+        int sqrtN = (int)Math.sqrt(n);
+
+        for (int i = 1; i <= sqrtN; i++) {
+            if (n % i == 0) {
+                smallDivisors.add(i);
+                if (i != n / i) {
+                    largeDivisors.add(0, n / i);
+                }
             }
         }
 
-        if (k > list.size()) {
+        smallDivisors.addAll(largeDivisors);
+
+        if (k > smallDivisors.size()) {
             System.out.println(0);
         } else {
-            System.out.println(list.get(k-1));;
+            System.out.println(smallDivisors.get(k - 1));
         }
-
-
     }
 }
