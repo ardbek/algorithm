@@ -1,6 +1,6 @@
 import java.io.*;
 import java.util.*;
-
+ 
 public class Main {
     public static void main(String[] args) throws IOException {
 
@@ -9,26 +9,19 @@ public class Main {
 
         int n = Integer.parseInt(st.nextToken());
         int k = Integer.parseInt(st.nextToken());
-        List<Integer> smallDivisors = new ArrayList<>();
-        List<Integer> largeDivisors = new ArrayList<>();
+        List<Integer> list = new ArrayList<>();
 
-        int sqrtN = (int)Math.sqrt(n);
-
-        for (int i = 1; i <= sqrtN; i++) {
-            if (n % i == 0) {
-                smallDivisors.add(i);
-                if (i != n / i) {
-                    largeDivisors.add(0, n / i);
-                }
+        for (int i = 1; i < n+1; i++) {
+            if (n % (i) == 0) {
+                list.add(i);
             }
         }
 
-        smallDivisors.addAll(largeDivisors);
-
-        if (k > smallDivisors.size()) {
+        if (k > list.size()) {
             System.out.println(0);
         } else {
-            System.out.println(smallDivisors.get(k - 1));
+            System.out.println(list.get(k-1));;
         }
+
     }
 }
